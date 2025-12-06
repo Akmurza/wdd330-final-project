@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sky & Wellness Tracker</title>
+    <link rel="stylesheet" href="/src/styles/main.css">
+
+</head>
+
+<body>
+    <div class="app">
+        <header class="header">
+            <h1>Sky & Wellness Tracker</h1>
+            <p class="subtitle">Track your wellness with celestial events</p>
+        </header>
+
+        <main class="main-content">
+            <!-- Current Status Section -->
+            <section class="card status-card">
+                <h2>Current Status</h2>
+
+                <div class="location-info">
+                    <p class="location-label">📍 Location:</p>
+                    <p id="location" class="location-text">Loading...</p>
+                </div>
+
+                <div class="moon-section">
+                    <h3>🌙 Moon Phase</h3>
+                    <div id="moonPhase" class="moon-display">
+                        <div class="moon-image-container" id="moonImageContainer">
+                            <span id="moonEmoji"></span>
+                        </div>
+                        <p id="moonPhaseName" class="moon-phase-name">Loading...</p>
+                    </div>
+                </div>
+
+                <div class="atmospheric-section">
+                    <h3>Atmospheric Pressure</h3>
+                    <p id="pressure" class="pressure-value">Loading...</p>
+                </div>
+            </section>
+
+            <!-- Wellness Log Section -->
+            <section class="card wellness-card">
+                <h2>Log Your Wellness</h2>
+                <form id="wellnessForm" class="wellness-form">
+                    <div class="form-group">
+                        <label for="energyLevel">Energy Level: <span id="energyValue"
+                                class="range-value">5</span></label>
+                        <input type="range" id="energyLevel" name="energyLevel" min="1" max="10" value="5">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="painLevel">Pain Level: <span id="painValue" class="range-value">5</span></label>
+                        <input type="range" id="painLevel" name="painLevel" min="1" max="10" value="5">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Symptoms:</label>
+                        <div class="checkbox-group">
+                            <label>
+                                <input type="checkbox" name="symptoms" value="headache">
+                                Headache
+                            </label>
+                            <label>
+                                <input type="checkbox" name="symptoms" value="fatigue">
+                                Fatigue
+                            </label>
+                            <label>
+                                <input type="checkbox" name="symptoms" value="joint-pain">
+                                Joint Pain
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="notes">Notes / Reflection:</label>
+                        <textarea id="notes" name="notes" rows="3" placeholder="How are you feeling today?"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Log Entry</button>
+                </form>
+            </section>
+
+            <!-- History Section -->
+            <section class="card history-card">
+                <h2>Your Wellness History</h2>
+                <div id="historyList" class="history-list">
+                    <p class="empty-message">No entries yet. Start logging your wellness!</p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>Data from NASA & Open-Meteo APIs</p>
+        </footer>
+    </div>
+    <script src="/src/scripts/" type="module"></script>
+</body>
+
+</html>
