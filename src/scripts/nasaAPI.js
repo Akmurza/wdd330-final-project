@@ -1,5 +1,35 @@
-// NASA API module - calculates moon phase
+// NASA API module - fetches real astronomy data
 
+const NASA_API_KEY = 'dPCpzfKzMJBOLczqOI7UR1hqJgJ5QuejaAfeVbgM'; //key
+
+// Fetch Astronomy Picture of the Day
+export async function fetchNASAImage() {
+    try {
+        const response = await fetch(
+            `https://api.nasa.gov/planetary/apod?api_key=${NASA_API_KEY}`
+        );
+
+        if (!response.ok) {
+            throw new Error(`NASA API error: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        console.log('NASA API Response:', data); // 
+
+        return {
+            url: data.url,
+            title: data.title,
+            explanation: data.explanation,
+            date: data.date
+        };
+    } catch (error) {
+        console.error('NASA API fetch error:', error);
+        throw error;
+    }
+}
+
+// Calculate moon phase 
 export function calculateMoonPhase() {
     const today = new Date();
     const year = today.getFullYear();
